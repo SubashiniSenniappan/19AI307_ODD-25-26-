@@ -1,94 +1,61 @@
-# Ex.No:4(B)  IMPLEMENT SOLID PRINCIPLES IN JAVA PROGRAM 
+# Ex.No:5(A) INPUTSTREAMREADER 
 
 ## QUESTION:
-At an international airport, only one Radar Control Tower exists. This tower is responsible for handling all flight communications regardless of how many flights are coming in. Each incoming flight must contact this tower to register its approach.
-
-To ensure safety and consistency, all flights must communicate with the same instance of the tower. If multiple towers are created, it may lead to inconsistent instructions — a huge risk in aviation.
-
-Your task is to simulate this system using the Singleton pattern.
-
-Key Hint (Hidden in Story):
-Only one control tower object should exist.
-
-Every flight contacting it should register its name.
-
-You should log the order of flights that contacted the tower.
-
-Input Format:
-First line: Integer n – number of incoming flights
-
-Next n lines: Each line contains the flight name.
-
-Output Format:
-For each flight, print:
-
-[FlightName] registered with Radar Control Tower. Total Flights: [count]
+Write a program to read user input from the keyboard using InputStreamReader 
 
 ## AIM:
-To simulate a radar control system where only one tower instance handles multiple flight communications using the Singleton pattern.
+To write a Java program that reads input from the keyboard using InputStreamReader and displays the output.
 
 ## ALGORITHM :
-1.	Create a RadarControlTower class with a private static instance.
-2.	Make the constructor private to prevent multiple object creation.
-3.	Define a getInstance() method to return the single instance.
-4.	Use a registerFlight() method to log flight names and count.
-5.	In main(), get the singleton tower instance and register all flights.
+1.	Start the program.
+2.	Import the necessary package 'java.util'
+3.	Create an InputStreamReader object with System.in as input.
+4.	Wrap it inside a BufferedReader to read text efficiently.
+5.	Read a string entered by the user.
+6.	Display the output using System.out.println().
+7.	End the program.
+
+
+
+
 
 ## PROGRAM:
  ```
 
-Program to implement a SOLID Principles in Java Program
-Developed by:SUBASHINI S
+Program to implement a InputStreamReader using Java
+Developed by: SUBASHINI S
 RegisterNumber: 212222240106
 
 ```
 
 ## SOURCE CODE:
 ```
-import java.util.*;
 
-class RadarControlTower {
-    private static RadarControlTower instance;
-    private int flightCount = 0;
+import java.io.*;
 
-    private RadarControlTower() {}
-
-    public static RadarControlTower getInstance() {
-        if (instance == null) {
-            instance = new RadarControlTower();
-        }
-        return instance;
-    }
-
-    public int registerFlight(String flightName) {
-        flightCount++;
-        return flightCount;
+public class Q2_InputStreamReader {
+    public static void main(String[] args) throws IOException {
+        InputStreamReader reader = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(reader);
+        
+        System.out.print("Enter your name: ");
+        String name = br.readLine();
+        
+        System.out.println("Hello, " + name + "!");
     }
 }
-
-public class prog {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();  // consume newline
-
-        for (int i = 0; i < n; i++) {
-            String flight = sc.nextLine();
-            RadarControlTower tower = RadarControlTower.getInstance();
-            int total = tower.registerFlight(flight);
-            System.out.println(flight + " registered with Radar Control Tower. Total Flights: " + total);
-        }
-    }
-}
-
 ```
 
-## OUTPUT:
-<img width="1240" height="326" alt="image" src="https://github.com/user-attachments/assets/9c541c2d-69dd-4cd9-a972-4127d57d2425" />
 
+
+
+## OUTPUT:
+
+<img width="487" height="280" alt="image" src="https://github.com/user-attachments/assets/5a0bece5-cbe0-46f0-9ce5-2918ebdd8b82" />
 
 
 ## RESULT:
 The program has been executed successfully and the desired output has been obtained.
+
 
 
